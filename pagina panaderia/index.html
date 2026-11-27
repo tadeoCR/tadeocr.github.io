@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pan y Nube, panadería artesanal de barrio con ingredientes locales y recetas hechas con cariño.">
+  <title>Pan y Nube | Panadería artesanal</title>
+  <style>
+    :root {
+      --ink: #29241f;
+      --muted: #665d54;
+      --cream: #fffaf1;
+      --paper: #f5ead8;
+      --rust: #a94f32;
+      --rust-dark: #79351f;
+      --sage: #667a5b;
+      --white: #fff;
+      --shadow: 0 18px 50px rgba(58, 39, 23, .12);
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      scroll-behavior: smooth;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 5; background: rgba(255,250,241,.95); border-bottom: 1px solid #eadbc5; backdrop-filter: blur(12px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { text-decoration: none; font-family: Georgia, serif; font-weight: 700; font-size: 1.35rem; letter-spacing: -.04em; }
+    .brand span { color: var(--rust); }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; }
+    nav a { text-decoration: none; padding: 9px 13px; border-radius: 999px; font-size: .94rem; font-weight: 700; }
+    nav a:hover, nav a:focus-visible { color: var(--rust-dark); background: var(--paper); outline: none; }
+    section { scroll-margin-top: 88px; }
+    .hero { padding: 68px 0 76px; background: radial-gradient(ellipse at 82% 12%, #f2d8ad 0, transparent 34%), linear-gradient(135deg, #fff8eb, #f7e9d4); overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 50px; align-items: center; }
+    .eyebrow { color: var(--sage); text-transform: uppercase; letter-spacing: .15em; font-size: .76rem; font-weight: 800; }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.12; }
+    h1 { font-size: clamp(2.65rem, 6vw, 5rem); letter-spacing: -.055em; margin: 14px 0 20px; max-width: 700px; }
+    h1 em { color: var(--rust); font-style: normal; }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 560px; }
+    .button { display: inline-block; border: 0; border-radius: 999px; padding: 13px 20px; background: var(--rust); color: white; font-weight: 800; text-decoration: none; cursor: pointer; transition: transform .2s, background .2s; }
+    .button:hover { background: var(--rust-dark); transform: translateY(-2px); }
+    .hero .button { margin-top: 12px; }
+    .hero-photo { width: 100%; aspect-ratio: 1 / .88; object-fit: cover; border-radius: 48% 48% 20px 20px; box-shadow: var(--shadow); }
+    .section-pad { padding: 82px 0; }
+    .section-heading { max-width: 670px; margin: 0 auto 38px; text-align: center; }
+    .section-heading h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin: 10px 0 14px; letter-spacing: -.04em; }
+    .section-heading p { color: var(--muted); margin: 0; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    .intro-grid img, .intro-grid svg { display: block; width: 100%; height: 420px; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow); }
+    .intro-copy h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 12px 0 18px; }
+    .intro-copy p { color: var(--muted); }
+    .intro-copy ul { padding-left: 1.2rem; color: var(--muted); }
+    .intro-copy li { padding: 4px 0; }
+    .gallery-section { background: var(--paper); }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: var(--cream); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 26px rgba(58,39,23,.08); }
+    .card img, .card svg { display: block; width: 100%; aspect-ratio: 1.3 / 1; object-fit: cover; }
+    .card-copy { padding: 18px 20px 20px; }
+    .card h3 { margin: 0 0 7px; font-size: 1.35rem; }
+    .card p { color: var(--muted); margin: 0; font-size: .95rem; }
+    .contact { background: #354231; color: var(--cream); }
+    .contact .section-heading p { color: #e0e5da; }
+    .contact-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 55px; align-items: start; }
+    .contact-info h3 { font-size: 1.7rem; margin-top: 0; }
+    .contact-info p { color: #e0e5da; }
+    .contact-info a { color: #f3c58f; }
+    .contact-form { background: var(--cream); color: var(--ink); border-radius: 18px; padding: 28px; box-shadow: var(--shadow); }
+    .field { margin-bottom: 16px; }
+    label { display: block; font-weight: 800; margin-bottom: 6px; }
+    input, textarea, select { display: block; width: 100%; border: 1px solid #d9cbb7; border-radius: 9px; padding: 12px 13px; background: white; color: var(--ink); font: inherit; }
+    input:focus, textarea:focus, select:focus { outline: 3px solid #e7b17f; border-color: var(--rust); }
+    textarea { min-height: 120px; resize: vertical; }
+    .contact-form .button { font: inherit; }
+    #form-message { min-height: 1.6em; margin: 12px 0 0; color: var(--sage); font-weight: 800; }
+    footer { padding: 22px 0; background: #272f25; color: #e0e5da; font-size: .9rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .nav { padding: 14px 0; align-items: flex-start; flex-direction: column; gap: 8px; }
+      nav { gap: 2px; }
+      nav a { padding: 8px 10px; }
+      .hero { padding: 46px 0 54px; }
+      .hero-grid, .intro-grid, .contact-layout { grid-template-columns: 1fr; gap: 28px; }
+      .hero-photo { max-height: 360px; }
+      .intro-grid img, .intro-grid svg { height: 300px; }
+      .gallery { grid-template-columns: 1fr; }
+      .section-pad { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Pan y Nube, ir al inicio">Pan <span>&</span> Nube</a>
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Quiénes somos</a>
+        <a href="#galeria">Nuestra panadería</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="titulo-inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Panadería artesanal · Desde 2018</span>
+          <h1 id="titulo-inicio">Un buen día empieza con <em>pan recién hecho.</em></h1>
+          <p class="lead">En Pan y Nube horneamos cada mañana panes, roles y galletas con ingredientes sencillos, recetas cuidadas y mucho cariño.</p>
+          <a class="button" href="#galeria">Conoce lo que horneamos</a>
+        </div>
+        <svg class="hero-photo" viewBox="0 0 640 560" role="img" aria-label="Ilustración de panes artesanales recién horneados" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="heroBg" x2="0" y2="1"><stop stop-color="#f4d7a7"/><stop offset="1" stop-color="#d99b5e"/></linearGradient><linearGradient id="heroBread" x2="0" y2="1"><stop stop-color="#e6a94f"/><stop offset="1" stop-color="#a94f32"/></linearGradient></defs>
+          <rect width="640" height="560" fill="url(#heroBg)"/><circle cx="500" cy="100" r="66" fill="#fff2d4" opacity=".48"/><path d="M0 400 Q150 350 310 400 T640 385V560H0Z" fill="#c7844e"/><ellipse cx="320" cy="446" rx="245" ry="58" fill="#76503a" opacity=".22"/>
+          <path d="M104 386c-12-85 45-151 129-151 65 0 112 38 128 100 18 68-18 108-92 116l-90 10c-52 5-68-23-75-75Z" fill="url(#heroBread)" stroke="#8b462c" stroke-width="8"/><path d="m164 286 78 51m-42-79 80 54m-33-69 70 54" fill="none" stroke="#ffe0a0" stroke-width="17" stroke-linecap="round"/>
+          <path d="M334 398c-8-75 40-127 111-127 59 0 99 40 103 96 5 66-33 91-94 91h-54c-45 0-61-20-66-60Z" fill="#bd6e39" stroke="#87442c" stroke-width="8"/><path d="m378 309 64 45m-23-78 67 51" fill="none" stroke="#f3c77e" stroke-width="15" stroke-linecap="round"/>
+          <path d="M83 450q-23-53 5-80 26 20 14 54 35-28 55 5-30 24-74 21Zm460-15q-10-47 21-64 20 28 1 53 38-12 48 22-37 13-70-11Z" fill="#667a5b"/><path d="M130 465q-3-70-45-112m458 108q-1-63 45-105" fill="none" stroke="#4e6245" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section-pad" id="nosotros" aria-labelledby="titulo-nosotros">
+      <div class="wrap intro-grid">
+        <svg viewBox="0 0 600 500" role="img" aria-label="Ilustración de un pan rústico en la mesa de la panadería" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="introBg" x2="0" y2="1"><stop stop-color="#e8c99d"/><stop offset="1" stop-color="#ad754b"/></linearGradient><linearGradient id="introBread" x2="0" y2="1"><stop stop-color="#f0bd66"/><stop offset="1" stop-color="#b75a32"/></linearGradient></defs><rect width="600" height="500" fill="url(#introBg)"/><rect x="38" y="40" width="165" height="200" rx="82" fill="#fff0d0" opacity=".58"/><path d="M0 334q135-60 275 0t325-7v173H0Z" fill="#8e5c3d"/><path d="M129 355c-11-104 50-177 150-177 79 0 133 48 145 124 12 79-34 122-112 131l-90 10c-55 5-85-27-93-88Z" fill="url(#introBread)" stroke="#8d492e" stroke-width="9"/><path d="m197 226 97 63m-51-95 102 67m-38-77 82 62" fill="none" stroke="#ffe2a3" stroke-width="21" stroke-linecap="round"/><path d="M58 404q30-71 57-87 26 56 3 95 44-28 69 13-42 31-129 12Z" fill="#657b55"/><path d="M84 429q4-59-25-91" fill="none" stroke="#455d40" stroke-width="7"/></svg>
+        <div class="intro-copy">
+          <span class="eyebrow">Quiénes somos</span>
+          <h2 id="titulo-nosotros">Un pequeño horno con grandes ganas de compartir.</h2>
+          <p>Somos una panadería de barrio artesanal nacida del gusto por hacer las cosas con calma. Nuestro equipo prepara cada producto en el local y busca que cada visita se sienta como llegar a una cocina familiar.</p>
+          <p>Creemos que el buen pan une a las personas. Por eso trabajamos con proveedores locales y cuidamos cada etapa, desde la masa hasta el momento de servir.</p>
+          <ul>
+            <li>Horneamos todos los días en pequeñas tandas.</li>
+            <li>Elegimos ingredientes frescos y de temporada.</li>
+            <li>Tenemos opciones dulces y saladas para compartir.</li>
+          </ul>
+          <a class="button" href="#contacto">Ven a saludarnos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad gallery-section" id="galeria" aria-labelledby="titulo-galeria">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="eyebrow">Hecho en nuestro horno</span>
+          <h2 id="titulo-galeria">Un vistazo a lo que hacemos</h2>
+          <p>Preparamos recetas para el desayuno, la merienda y cualquier momento que merezca algo rico.</p>
+        </div>
+        <div class="gallery">
+          <article class="card">
+            <svg viewBox="0 0 520 400" role="img" aria-label="Ilustración de pan rústico de masa madre" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sourdoughBg" x2="0" y2="1"><stop stop-color="#f1dfbd"/><stop offset="1" stop-color="#c58a55"/></linearGradient><linearGradient id="sourdough" x2="0" y2="1"><stop stop-color="#eabc68"/><stop offset="1" stop-color="#a84d2e"/></linearGradient></defs><rect width="520" height="400" fill="url(#sourdoughBg)"/><path d="M0 280q130-40 260 4t260-5v121H0Z" fill="#9b6743"/><ellipse cx="264" cy="311" rx="172" ry="35" fill="#60402e" opacity=".28"/><path d="M111 277c-9-77 38-131 113-131 67 0 116 43 123 104 8 60-29 93-91 100l-71 7c-46 4-68-24-74-80Z" fill="url(#sourdough)" stroke="#87432d" stroke-width="8"/><path d="m162 190 75 48m-34-76 85 52m-36-63 77 50" fill="none" stroke="#ffdfa0" stroke-width="17" stroke-linecap="round"/><path d="M54 345q22-56 46-70 21 41 4 73 34-22 54 10-39 27-104 5Z" fill="#657b55"/></svg>
+            <div class="card-copy"><h3>Masa madre</h3><p>Corteza dorada, miga suave y fermentación lenta para disfrutar en cualquier comida.</p></div>
+          </article>
+          <article class="card">
+            <svg viewBox="0 0 520 400" role="img" aria-label="Ilustración de roles de canela recién horneados" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sweetBg" x2="0" y2="1"><stop stop-color="#f8e7ca"/><stop offset="1" stop-color="#d3a06c"/></linearGradient></defs><rect width="520" height="400" fill="url(#sweetBg)"/><path d="M0 290q140-36 260 0t260-2v112H0Z" fill="#a66c45"/><ellipse cx="260" cy="302" rx="182" ry="51" fill="#f4dfbd"/><g fill="#bf7142" stroke="#984a30" stroke-width="8"><circle cx="176" cy="260" r="65"/><circle cx="300" cy="245" r="74"/><circle cx="382" cy="282" r="54"/></g><g fill="none" stroke="#f3c37a" stroke-width="13" stroke-linecap="round"><path d="M194 259c-3-26-39-32-42-8-4 27 38 38 54 16 26-37-8-74-39-52m142 31c-4-34-49-43-56-10-8 37 53 50 75 17 34-51-14-98-54-70m125 97c-4-24-34-30-40-7-6 27 34 37 51 13 20-29-7-59-31-42"/></g><path d="M102 179q53-46 102-16m85-36q60-26 104 15" fill="none" stroke="#fff4dd" stroke-width="12" stroke-linecap="round" opacity=".8"/></svg>
+            <div class="card-copy"><h3>Pan dulce</h3><p>Roles de canela y piezas de temporada, preparados cada mañana en el horno.</p></div>
+          </article>
+          <article class="card">
+            <svg viewBox="0 0 520 400" role="img" aria-label="Ilustración de galletas y bollería artesanal" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cookieBg" x2="0" y2="1"><stop stop-color="#e8d5b4"/><stop offset="1" stop-color="#b47a4d"/></linearGradient><linearGradient id="croissant" x2="0" y2="1"><stop stop-color="#f4c66f"/><stop offset="1" stop-color="#b85d35"/></linearGradient></defs><rect width="520" height="400" fill="url(#cookieBg)"/><path d="M0 286q150-38 260 0t260-3v117H0Z" fill="#815438"/><path d="M111 267q29-91 102-100 24-4 43 13 21-17 44-13 72 9 101 100-36 65-145 64t-145-64Z" fill="url(#croissant)" stroke="#944a30" stroke-width="9"/><path d="M251 182q-24 38-15 100m42-100q26 38 16 100m41-81q17 38 22 73m-143-73q-17 38-22 73" fill="none" stroke="#ffe0a0" stroke-width="12" stroke-linecap="round"/><circle cx="125" cy="328" r="35" fill="#d99a53" stroke="#9b5833" stroke-width="7"/><circle cx="125" cy="328" r="17" fill="none" stroke="#f4d394" stroke-width="8"/><circle cx="395" cy="326" r="35" fill="#d99a53" stroke="#9b5833" stroke-width="7"/><circle cx="395" cy="326" r="17" fill="none" stroke="#f4d394" stroke-width="8"/><circle cx="111" cy="322" r="3" fill="#67402e"/><circle cx="139" cy="334" r="3" fill="#67402e"/><circle cx="387" cy="319" r="3" fill="#67402e"/><circle cx="404" cy="337" r="3" fill="#67402e"/></svg>
+            <div class="card-copy"><h3>Para compartir</h3><p>Galletas y bollería para llevar a casa, al trabajo o a una tarde con amigos.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad contact" id="contacto" aria-labelledby="titulo-contacto">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="eyebrow" style="color:#f3c58f">Contacto</span>
+          <h2 id="titulo-contacto">¿Se te antojó algo?</h2>
+          <p>Escríbenos o pasa por el local. ¡Nos encantará saludarte!</p>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <h3>Visítanos</h3>
+            <p><strong>Dirección:</strong><br>Av. de los Olivos 125, Col. Centro</p>
+            <p><strong>Horario:</strong><br>Lunes a sábado, 8:00 a 19:00</p>
+            <p><strong>Teléfono:</strong><br><a href="tel:+525555501234">55 5550 1234</a></p>
+            <p><strong>Correo:</strong><br><a href="mailto:hola@panynube.example">hola@panynube.example</a></p>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="correo">Correo electrónico</label>
+              <input id="correo" name="correo" type="email" placeholder="tunombre@ejemplo.com" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="motivo">¿En qué podemos ayudarte?</label>
+              <select id="motivo" name="motivo">
+                <option value="consulta">Tengo una consulta</option>
+                <option value="pedido">Quiero hacer un pedido</option>
+                <option value="evento">Necesito pan para un evento</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos un poco más..." required></textarea>
+            </div>
+            <button class="button" type="submit">Enviar mensaje</button>
+            <p id="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap"><span>© 2026 Pan y Nube</span><a href="#inicio">Volver al inicio ↑</a></div>
+  </footer>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('form-message').textContent = '¡Gracias por su pedido';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
